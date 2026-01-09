@@ -34,6 +34,10 @@ chroma_db/
 data/*
 !data/.gitkeep
 
+# Frontend (keep .gitkeep)
+frontend/*
+!frontend/.gitkeep
+
 # OS
 .DS_Store
 Thumbs.db
