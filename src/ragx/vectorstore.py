@@ -51,11 +51,14 @@ def add_documents(documents: list[Document], on_progress: callable = None) -> No
 
 
 def clear_vectorstore() -> None:
-    persist_path = Path(settings.chroma_persist_dir)
-    if persist_path.exists():
-        import shutil
-
-        shutil.rmtree(persist_path)
+    try:
+        vectorstore = get_vectorstore()
+        collection = vectorstore._collection
+        ids = collection.get()["ids"]
+        if ids:
+            collection.delete(ids=ids)
+    except Exception:
+        pass
 
 
 def get_document_count() -> int:
