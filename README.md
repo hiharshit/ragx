@@ -11,6 +11,7 @@ End-to-end Retrieval-Augmented Generation pipeline built with LangChain, ChromaD
 - Interactive CLI with Rich formatting
 - Rate limit handling with automatic retry
 - FastAPI backend with REST endpoints
+- React frontend with minimal modern design
 
 ## Quick Start
 
@@ -18,6 +19,7 @@ End-to-end Retrieval-Augmented Generation pipeline built with LangChain, ChromaD
 
 - Python 3.11+
 - [UV](https://docs.astral.sh/uv/) package manager
+- [Bun](https://bun.sh/) (for frontend)
 - Google Gemini API key
 
 ### Installation
@@ -48,11 +50,12 @@ uv run ragx stats
 
 # Clear vector store
 uv run ragx clear
-# Clear vector store
-uv run ragx clear
 
 # Start API server
 uv run uvicorn api.main:app --reload
+
+# Start frontend (in separate terminal)
+cd frontend && bun dev
 ```
 
 ### API Documentation
@@ -80,7 +83,7 @@ ragx/
 │   ├── routes/            # API endpoints
 │   ├── main.py
 │   └── schemas.py
-├── frontend/              # Web UI (coming soon)
+├── frontend/              # React frontend
 ├── data/                  # Document storage
 ├── pyproject.toml         # UV/Python config
 └── .env.example           # Environment template
@@ -110,6 +113,7 @@ Application settings (`src/ragx/config.py`):
 - **Google Gemini** - LLM & embeddings
 - **FastAPI** - REST API
 - **Typer + Rich** - CLI interface
+- **React + Vite** - Frontend
 - **Pydantic Settings** - Configuration
 
 ## License
